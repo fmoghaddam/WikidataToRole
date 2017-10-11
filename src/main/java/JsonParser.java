@@ -167,7 +167,8 @@ public class JsonParser {
 		for(Entry<String, Map<String, String>> a:linkMap.entrySet()){
 			for(Entry<String, String> s:a.getValue().entrySet()){
 				final StringBuilder result = new StringBuilder();
-				result.append(s.getKey()).append(";").append(s.getValue()).append(";").append(s.getKey().replaceAll(" ", "_"));
+				String replaceAll = s.getValue().substring(s.getValue().lastIndexOf("/")+1);
+				result.append(s.getKey()).append(";").append(s.getValue()).append(";").append(replaceAll);
 				aggregationSet.add(result.toString());
 			}			    
 		}
